@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Search form</h1>
+
+<%= form_tag books_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= link_to "Advanced Search", new_search_path  %>
+
+<h1>Books</h1>
+
+<div id="books">
+  <% @books.each do |book| %>
+    <%= render book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New book", new_book_path %>
